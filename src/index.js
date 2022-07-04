@@ -1,22 +1,28 @@
 const express = require('express')
+const path = require('path')
 const app = express()
-const port = 3010
 const user = require('./routes/users')
 const loggedMiddleware = require('./middlewares/logged')
 
+// Settings
+app.set('title', 'Node.js application')
+app.set('port', 3010)
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, 'views'))
 
 // middlewares
 app.use(loggedMiddleware)
-app.use(express.static(__dirname))
-console.log(__dirname)
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.json())
+app.use(express.urlencoded({extended:false}))
 
 // routes
 app.get('/', (request, response) => {
-    response.send('Welcome')
+    response.render('index')
 })
 
 app.use('/users', user)
 
-app.listen(port, () => {
-    console.log(`Application running on port ${port}`)
+app.listen(app.get('port'), () => {
+    console.log(`${app.get('title')} is running on port ${app.get('port')}`)
 })

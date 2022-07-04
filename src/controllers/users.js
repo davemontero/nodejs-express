@@ -1,17 +1,38 @@
+const users = [
+    {id: 1, name: 'Paul', age: 20},
+    {id: 2, name: 'Dave', age: 29},
+    {id: 3, name: 'Jane', age: 24}
+]
+
 const getUsers = (request, response) => {
-    response.send('Showing all users')
+    response.render('users', {users: users})
 }
 
-const createUser = (request, response) => {
-    response.send('User created')
+const getCreateUser = (request, response) => {
+    response.render('create-users')
 }
 
-const updateUser = (request, response) => {
-    response.send('User updated')
+const getUpdateUser = (request, response) => {
+    response.render('update-users')
 }
 
-const deleteUser = (request, response) => {
-    response.send('User deleted')
+const getDeleteUser = (request, response) => {
+    response.render('delete-users')
 }
 
-module.exports = {getUsers, createUser, updateUser, deleteUser}
+const createUsers = (request, response) => {
+    users.push(request.body)
+}
+
+const updateUsers = (request, response) => {
+    response.render('')
+}
+
+const deleteUsers = (request, response) => {
+    response.render('')
+}
+
+
+
+
+module.exports = {getUsers, getCreateUser, getUpdateUser, getDeleteUser, createUsers, updateUsers, deleteUsers}
