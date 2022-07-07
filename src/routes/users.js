@@ -12,8 +12,8 @@ router.get('/delete', getDeleteUser)
 
 router.post('/create', createUsers)
 
-router.put('update', updateUsers)
+router.put('/update/:id', updateUsers)
 
-router.delete('/delete', deleteUsers)
+router.delete('/delete/:id', deleteUsers)
 
 module.exports = router

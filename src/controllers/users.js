@@ -25,11 +25,25 @@ const createUsers = (request, response) => {
 }
 
 const updateUsers = (request, response) => {
-    response.render('')
+
+    const userUpdate = users.map(el => {
+        if (el.id == request.params.id) {
+            el.name = request.body.name
+            el.age = request.body.age
+        }
+    })
+    response.render('users', {users: users})
 }
 
 const deleteUsers = (request, response) => {
-    response.render('')
+    const userDelete = users.map((el,idx) => {
+        console.log(el.id, request.params.id)
+        if (el.id == request.params.id) {
+            users.splice(idx,1)
+        }
+        console.log(users)
+    })
+    response.render('users', {users: users})
 }
 
 

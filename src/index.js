@@ -24,5 +24,5 @@ app.get('/', (request, response) => {
 app.use('/users', user)
 
 app.listen(app.get('port'), () => {
-    console.log(`${app.get('title')} is running on port ${app.get('port')}`)
+    console.log(`${app.get('title')} it's running on port ${app.get('port')}`)
 })
