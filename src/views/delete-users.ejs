@@ -8,5 +8,11 @@
 </head>
 <body>
     <h1>Delete users</h1>
+    <form action="/users/delete/<%= user[0]['id'] %>" method="POST">
+        <h2>¿Desea eliminar el usuario?</h2>
+        <p><%= user[0]['name'] %></p>
+        <a href="/users/all" class="btn btn-update">Cancelar</a>
+        <button type="submit" class="btn btn-delete">Eliminar</button>
+    </form>
 </body>
 </html>

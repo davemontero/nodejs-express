@@ -1,11 +1,8 @@
-const users = [
-    {id: 1, name: 'Paul', age: 20},
-    {id: 2, name: 'Dave', age: 29},
-    {id: 3, name: 'Jane', age: 24}
-]
+const connection = require('../connection')
 
 const getUsers = (request, response) => {
-    response.render('users', {users: users})
+    const statement = 'SELECT * FROM users'
+    connection.query(statement, (err, rs) => !err ? response.render('users', {users: rs}) : console.log('Ha ocurrido un error'))
 }
 
 const getCreateUser = (request, response) => {
@@ -13,37 +10,31 @@ const getCreateUser = (request, response) => {
 }
 
 const getUpdateUser = (request, response) => {
-    response.render('update-users')
+    const params = request.params.id
+    const statement = 'SELECT * FROM users WHERE id=?'
+    connection.query(statement, params, (err, rs) => !err ? response.render('update-users', {user: rs}) : console.log(`Ha ocurrido un error ${err}`))
 }
 
 const getDeleteUser = (request, response) => {
-    response.render('delete-users')
+    const params = request.params.id
+    const statement = 'SELECT * FROM users WHERE id=?'
+    connection.query(statement, params, (err, rs) => !err ? response.render('delete-users', {user: rs}) : console.log(`Ha ocurrido un error ${err}`)) 
 }
 
 const createUsers = (request, response) => {
-    users.push(request.body)
+    const statement = 'INSERT INTO users SET ? '
+    const data = request.body
+    connection.query(statement, data, (err, rs) => !err ? response.redirect('/users/all') : console.log('Ha ocurrido un error'))
 }
 
 const updateUsers = (request, response) => {
-
-    const userUpdate = users.map(el => {
-        if (el.id == request.params.id) {
-            el.name = request.body.name
-            el.age = request.body.age
-        }
-    })
-    response.render('users', {users: users})
+    const statement = `UPDATE users SET name='${request.body.name}', age=${request.body.age} WHERE id=${request.params.id}`
+    connection.query(statement, (err, rs) => !err ? response.redirect('/users/all') : console.log(`Ha ocurrido un error: ${err}`))
 }
 
 const deleteUsers = (request, response) => {
-    const userDelete = users.map((el,idx) => {
-        console.log(el.id, request.params.id)
-        if (el.id == request.params.id) {
-            users.splice(idx,1)
-        }
-        console.log(users)
-    })
-    response.render('users', {users: users})
+    const statement = `DELETE FROM users WHERE id=${request.params.id}`
+    connection.query(statement, (err, rs) => !err ? response.redirect('/users/all') : console.log(`Ha ocurrido un error: ${err}`))
 }
 
 

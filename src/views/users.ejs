@@ -4,24 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
     <title>App - Users</title>
 </head>
 <body>
-    <h1>All users</h1>
-    <table>
-        <thead>
+    <h1 class="header-title">All users</h1>
+    <table cellspacing="0" cellpadding="0" class="table">
+        <thead class="t-header">
             <tr>
-                <td>ID</td>
-                <td>Name</td>
-                <td>Age</td>
+                <th class="t-header-item">ID</th>
+                <th class="t-header-item">Name</th>
+                <th class="t-header-item">Age</th>
+                <th class="t-header-item"></th>
+                <th class="t-header-item"></th>
             </tr>
         </thead>
         <tbody>
             <% users.map(el => { %>
                 <tr>
-                    <td><%= el.id %></td>
-                    <td><%= el.name %></td>
-                    <td><%= el.age %></td>
+                    <td class="t-item"><%= el.id %></td>
+                    <td class="t-item"><%= el.name %></td>
+                    <td class="t-item"><%= el.age %></td>
+                    <td class="t-item"><a class="btn btn-update" href="/users/update/<%= el.id %>">Modificar</a></td>
+                    <td class="t-item"><a class="btn btn-delete" href="/users/delete/<%= el.id %>">Eliminar</a></td>
                 </tr>
             <% }) %>
         </tbody>

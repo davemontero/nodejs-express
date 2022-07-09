@@ -6,14 +6,14 @@ router.get('/all', getUsers)
 
 router.get('/create', getCreateUser)
 
-router.get('/update', getUpdateUser)
+router.get('/update/:id', getUpdateUser)
 
-router.get('/delete', getDeleteUser)
+router.get('/delete/:id', getDeleteUser)
 
 router.post('/create', createUsers)
 
-router.put('/update/:id', updateUsers)
+router.post('/update/:id', updateUsers)
 
-router.delete('/delete/:id', deleteUsers)
+router.post('/delete/:id', deleteUsers)
 
 module.exports = router

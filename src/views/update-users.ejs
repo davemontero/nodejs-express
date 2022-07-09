@@ -8,5 +8,12 @@
 </head>
 <body>
     <h1>Update users</h1>
+    <form action="/users/update/<%= user[0]['id'] %>" method="POST">
+        <label for="name">Nombre</label>
+        <input type="text" name="name" id="name" value="<%= user[0]['name'] %>"/>
+        <label for="age">Edad</label>
+        <input type="text" name="age" id="age" value="<%= user[0]['age'] %>"/>
+        <button type="submit">Registrar</button>
+    </form>
 </body>
 </html>

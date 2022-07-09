@@ -17,7 +17,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 
 // routes
-app.get('/', (request, response) => {
+app.get('/', async (request, response) => {
     response.render('index')
 })
 
