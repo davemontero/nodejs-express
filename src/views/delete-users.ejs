@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
     <title>App - delete users</title>
 </head>
 <body>
-    <h1>Delete users</h1>
-    <form action="/users/delete/<%= user[0]['id'] %>" method="POST">
-        <h2>¿Desea eliminar el usuario?</h2>
-        <p><%= user[0]['name'] %></p>
-        <a href="/users/all" class="btn btn-update">Cancelar</a>
-        <button type="submit" class="btn btn-delete">Eliminar</button>
-    </form>
+    <div class="title-container">
+        <div class="title">
+            <h1 class="title-h1">Delete user</h1>
+        </div>
+    </div>
+    <div class="form-container">
+        <form action="/users/delete/<%= user[0]['id'] %>" method="POST" class="form">
+            <h2>¿Desea eliminar el usuario?</h2>
+            <p class="t-center"><%= user[0]['name'] %></p>
+            <div class="btn-group">
+                <a href="/users/all" class="btn btn-update">Regresar</a>
+                <button type="submit" class="btn-form btn-form-delete">Eliminar</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

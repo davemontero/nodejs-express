@@ -4,16 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
     <title>App - update users</title>
 </head>
 <body>
-    <h1>Update users</h1>
-    <form action="/users/update/<%= user[0]['id'] %>" method="POST">
-        <label for="name">Nombre</label>
-        <input type="text" name="name" id="name" value="<%= user[0]['name'] %>"/>
-        <label for="age">Edad</label>
-        <input type="text" name="age" id="age" value="<%= user[0]['age'] %>"/>
-        <button type="submit">Registrar</button>
-    </form>
+    <header>
+        <nav class="nav">
+            <ul>
+                <li class="nav-item"><a href="/users/all">All users</a></li>
+                <li class="nav-item"><a href="/users/create">Create new user</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="title-container">
+        <div class="title">
+            <h1 class="title-h1">Edit user</h1>
+        </div>
+    </div>
+    <div class="form-container">
+        <form action="/users/update/<%= user[0]['id'] %>" method="POST" class="form">
+            <div class="form-group">
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" name="name" id="name" class="form-input" placeholder="John Doe" value="<%= user[0]['name']%>" />
+            </div>
+            <div class="form-group">
+                <label for="age" class="form-label">Edad</label>
+                <input type="text" name="age" id="age" class="form-input" placeholder="40" value="<%= user[0]['age'] %>" />
+            </div>
+            <button class="btn-form" type="submit">Registrar</button>
+        </form>
+    </div>
 </body>
 </html>

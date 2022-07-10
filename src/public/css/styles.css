@@ -16,10 +16,48 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.header-title {
-    text-align: center;
+.nav {
+    background-color: #DDD;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.nav ul{
+    list-style-type: none;
+    padding: 0 1rem;
+}
+
+.nav-item {
+    display: inline-block;
+    padding: .7rem .8rem;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #37304a;
+}
+
+.nav-item a:active {
+    color: #37304a;
+}
+
+.title-container {
+    margin-top: 2rem;
     margin-bottom: 2rem;
-    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    display: inline-block;
+    background-color: #DDD;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.title-h1 {
+    color: #37304a;
+    padding: .6rem 3rem;
+    text-align: center;
     text-transform: uppercase;
     font-family: 'Raleway';
     font-size: 3rem;
@@ -29,12 +67,10 @@ body {
 .table {
     border-spacing: 0;
     border-collapse: collapse;
-    border-style: hidden;
     overflow: hidden;
-    background-color: #eee;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    margin: 0 auto;
     border-radius: 6px;
+    margin: 0 auto;
 }
 
 .t-header {
@@ -52,8 +88,13 @@ body {
     letter-spacing: 1.2px;
 }
 
-.t-item{
+.t-user-row {
     color: #333;
+    background-color: #FFF;
+}
+
+.t-user-row:nth-child(even) {
+    background-color: #DDD;
 }
 
 .btn {
@@ -66,4 +107,82 @@ body {
 
 .btn-delete {
     color: hsla(0, 70%, 57%, 0.897);
+}
+
+.nav-item > .active {
+    color: #ab3e4b;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    background-color: #DDD;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 3.6rem;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .8rem;
+}
+
+.form-label,
+.form-input {
+    margin-bottom: .5rem;
+}
+
+.form-input {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border: none;
+    font-size: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+    min-width: 340px;
+}
+
+.btn-form {
+    padding: 1em 2em;
+    border: none;
+    border-radius: 5px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    background-color: #ab3e4b;
+    color: #DDD;
+    align-self: center;
+    transition: box-shadow .3s ease-in;
+}
+
+.btn-form:hover {
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.btn-form-delete {
+    padding: .6em 1em;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.t-center {
+    text-align: center;
+}
+
+.form > h2,
+.form > p,
+.btt-group {
+    margin-bottom: 2rem;
+}
+
+.ox-auto {
+    overflow-x: auto;
 }
